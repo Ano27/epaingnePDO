@@ -1,26 +1,25 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Etudiant
- * Date: 06/03/2019
- * Time: 10:27
- */
 
-class Personnage
+abstract class Personnage implements Combat
 {
-    public $nom;
-    public $vie = 200;
-    public $attaque;
-    public $taille;
-    public $masse;
-    public $race;
+    protected $nom;
+    protected $vie = 100;
+    protected $attaque;
+    protected $taille;
+    protected $masse;
+    protected $race;
 
-    public function marcher() :string
+    public function resultatCombat($a, $b)
     {
-        return "je marche";
+        return "$a a vaincu $b";
     }
 
-    public function recuperePointDeVie() :int
+    protected function marcher(): string
+    {
+        return "Je marche !";
+    }
+
+    protected function recupererPointDeVie(): int
     {
         return $this->vie;
     }
